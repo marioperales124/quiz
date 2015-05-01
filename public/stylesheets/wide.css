@@ -1,0 +1,20 @@
+*               { margin: 0; padding: 0; }
+body            { background: #FEFEFE; font: 16px Georgia, serif; }
+
+#page-wrap      { margin: 2% auto; color: white; }
+#page-wrap > .main { border: 2px solid #000; padding: 1%;
+                  margin-bottom: 1px; color: black;}
+
+#page-wrap:after { content: "Wide Layout"; }
+
+nav span { margin: 0px 10px 0px 0px; }
+
+section 	{ background: #C9B5A5; text-align: center;
+		 float: right; width: 80%; height: 200px; }
+header		{ text-align: center;}
+section		{ float: right; width: 80%; height: 200px; }
+footer		{ clear: both; display: block; }
+
+section > div   { padding: 20px; }
+
+

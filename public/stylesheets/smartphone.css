@@ -1,0 +1,18 @@
+* 		{ margin: 0; padding: 0; }
+
+body 	{ font: 14px Georgia, serif;
+	  font-size: xx-large; background: #FEFEFE;  }
+
+#page-wrap { margin: 2% auto; color: white; }
+
+#page-wrap > .main { border: 2px solid #000000; padding: 1%;
+		 margin-bottom: 1px; color: black; }
+
+#page-wrap:after{ content: "Smartphone Layout"; }
+
+h1 span, section h3 { display: none; }
+header,nav,section,footer { text-align: center;}
+footer, input { font-size: large; }
+nav span { margin: 0px 10px 0px 0px; }
+
+section > div { padding: 20px; }

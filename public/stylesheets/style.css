@@ -1,8 +1,12 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+*		{ margin: 0; padding: 0; }
+body		{ font: 16px Georgia, serif; }
 
-a {
-  color: #00B7FF;
-}
+#page-wrap	{ margin: 2% auto; color: white; }
+#page-wrap > .main { border: 2px solid #000; padding: 1%;
+		  margin-bottom: 1px; color: black;}
+
+nav span { margin: 0px 10px 0px 0px; }
+
+header,nav,section,footer { background: #fefefe; text-align: center;}
+
+section > div	{ padding: 20px; }
