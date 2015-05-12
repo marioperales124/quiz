@@ -14,11 +14,11 @@ router.get('/quizes/question', quizController.question);
 /* GET pagina respuestas */
 router.get('/quizes/answer', quizController.answer);
 
-router.get('/author', function(req, res){
+router.get('/quizes/author', function(req, res){
 	res.render("author");
 });
 
 module.exports = router;
 
 
-module.exports = router;
+
