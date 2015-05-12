@@ -24,10 +24,19 @@
       </nav>
 
       <section class="main" id="s1">
-        <div>
+        <% if (errors.length){ %>}
+          <span id='ErrorMsgs'>Corregir errores:<br>
+            <% for var i in errors){ %>
+            <span><%= errors[i].message %></span><br/>
+            <% } %>
+
+          </span>
+        <div><%- body %>
+        
+       
           <table>
-              <tr><td><a href="quizes/1">Capital de Italia</a></td></tr>
-              <tr><td><a href="quizes/2">Capital de Portugal</a></td></tr>
+             <tr><td><a href="/quizes/1">Capital de Italia</a></td></tr>
+              <tr><td><a href="/quizes/2">Capital de Portugal</a></td></tr>
             </table>
         </div>
       </section>
