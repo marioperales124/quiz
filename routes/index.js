@@ -9,10 +9,10 @@ router.get('/', function(req, res) {
 });
 
 /* GET pagina preguntas*/
-router.get('/quizes/question', quizController.question);
-
+router.get('/quizes', quizController.index);
+router.get('/quizes/:quizId(\\d+)', quizController.show);
 /* GET pagina respuestas */
-router.get('/quizes/answer', quizController.answer);
+router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 
 router.get('/quizes/author', function(req, res){
 	res.render("author");
