@@ -79,10 +79,10 @@ exports.update = function(req, res){
   req.quiz.validate().then(
     function(err){
       if(err){
-        res.render('quizes/new', {quiz: quiz, errors: err.errors});
+        res.render('quizes/edit', {quiz: req.quiz, errors: err.errors});
       }else{
          //guarda en DB
-    quiz.save({fields: ["pregunta", "respuesta"]}).then(function(){
+    req.quiz.save({fields: ["pregunta", "respuesta"]}).then(function(){
               res.redirect('/quizes');
           });
  
