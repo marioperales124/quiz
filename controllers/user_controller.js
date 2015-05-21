@@ -1,6 +1,4 @@
-var users = { admin : {id:1, username:"admin", password:"1234"},
-			  pepe : {id:2, username:"pepe", password:"5678"}
-			};
+var models = require ('../models/models.js');
 exports.autenticar = function  (login, password, callback) {
 	models.User.find({
 		where:{username:login}

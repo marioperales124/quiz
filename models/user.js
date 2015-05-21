@@ -1,15 +1,15 @@
 var crypto = require ('crypto');
 var key = process.env.PASSWORD_ENCRYPTION_KEY;
 
-module.exports = function (seq, DataTypes) {
-	var User = seq.define(
+module.exports = function (sequelize, DataTypes) {
+	var User = sequelize.define(
 		'User',{
 			username:{
 				type: DataTypes.STRING,
 				unique : true,
 				validate:{
 					notEmpty: {msg: "Por favor, escriba un nombre de usuario"},
-					isUnique : function(value,next) {};
+					isUnique : function(value,next) {;
 						var self = this;
 						User.find({where:{username: value}}).then(function(user){
 							if (user && self.id !== user.id){
@@ -17,17 +17,17 @@ module.exports = function (seq, DataTypes) {
 							}
 						return next();		
 						}).catch(function(err){return next(err);});
+					}
 				}
-
 			},
 			password:{
 				type: DataTypes.STRING,
-				validate:{notEmpty: {msg: "Por favor, escriba una contraseña valida"}}
-				set: function(password){
-					var encrypted=crypto.createHmac('sha1',key)
+				validate:{notEmpty: {msg: "Por favor, escriba una contraseña valida"}},
+				set: function (password){
+					var encripted = crypto.createHmac('sha1',key)
 					.update(password).digest('hex');
-				if(password === ''){encrypted='';}
-				this.setDataValue('password',encrypted);	
+				if(password === ''){encripted='';}
+				this.setDataValue('password',encripted);	
 				}
 			},
 			isAdmin:{
@@ -40,10 +40,10 @@ module.exports = function (seq, DataTypes) {
 		{
 			instanceMethods:{
 				verifyPassword: function(password) {
-					var encrypted=crypto.createHmac('sha1',key)
+					var encripted=crypto.createHmac('sha1',key)
 					.update(password).digest('hex');
 					
-					return encrypted === this.password;
+					return encripted === this.password;
 
 				}
 			}
