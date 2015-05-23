@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
 				set: function (password){
 					var encripted = crypto.createHmac('sha1',key)
 					.update(password).digest('hex');
-				if(password === ''){encripted='';}
+				if(password===''){encripted='';}
 				this.setDataValue('password',encripted);	
 				}
 			},

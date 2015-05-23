@@ -5,6 +5,7 @@ var quizController = require('../controllers/quiz_controllers.js');
 var commentController = require('../controllers/comment_controller.js');
 var sessionController = require('../controllers/session_controller.js');
 var statsController = require('../controllers/stats_controller.js');
+var userController = require('../controllers/user_controller.js');
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz', errors: []})
@@ -12,10 +13,18 @@ router.get('/', function(req, res) {
 
 router.param('quizId', quizController.load);
 router.param('commentId', commentController.load);
+router.param('userId',userController.load);
 
 router.get('/login', sessionController.new);
 router.post('/login', sessionController.create);
 router.get('/logout', sessionController.destroy);
+
+router.get('/user', userController.new);
+router.post('/user', userController.create);
+router.get('/user/:userId(\\d+)/edit', sessionController.loginRequired, userController.edit);
+router.put('/user/:userId(\\d+)', sessionController.loginRequired, userController.update);
+router.delete('/user/:userId(\\d+)', sessionController.loginRequired, userController.destroy);
+
 
 /* GET pagina preguntas*/
 router.get('/quizes', quizController.index);

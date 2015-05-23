@@ -27,9 +27,11 @@ app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req,res,next){
+    if(!req.session.redir){
+        req.session.redir='/';
+    }
 
-
-    if(!req.path.match(/\/login|\/logout/)){
+    if(!req.path.match(/\/login|\/logout|\/user/)){
         req.session.redir = req.path;
     }
     res.locals.session = req.session;
@@ -63,7 +65,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-   res.render('error', {
+    res.render('error', {
         message: err.message,
         error: {}
        // errors: []
