@@ -10,9 +10,11 @@ body 	{ font: 14px Georgia, serif;
 
 #page-wrap:after{ content: "Smartphone Layout"; }
 
+
 h1 span, section h3 { display: none; }
 header,nav,section,footer { text-align: center;}
 footer, input { font-size: large; }
+.quiz_img	{float: none;}
 nav span { margin: 0px 10px 0px 0px; }
 
 section > div { padding: 20px; }
